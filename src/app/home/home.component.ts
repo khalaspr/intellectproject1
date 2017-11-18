@@ -1,14 +1,38 @@
-/*
- * Copyright (c) 2016 VMware, Inc. All Rights Reserved.
- * This software is released under MIT license.
- * The full license information can be found in LICENSE in the root directory of this project.
- */
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { TodoListServiceService } from '../todo-list-service.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Component({
     styleUrls: ['./home.component.scss'],
     templateUrl: './home.component.html',
 })
 export class HomeComponent {
+ profile: any;
 
+
+    constructor(private router: Router,private _TodoListServiceService:TodoListServiceService) {
+        
+    }
+
+
+    ViewTodos(UserId,UserName){
+
+       // alert('view todo'+UserId);
+         this.router.navigate(['/about/',{ UserId: UserId, 'UserName':UserName }]);
+
+    }
+
+    ngOnInit(){
+
+ this._TodoListServiceService.getUsers()
+                               .map(response => response.json())
+                               .subscribe((res) =>{
+                                                     this.profile=res;                  
+                                                   //  console.log(this.profile);                                   
+                               })
+                            
+    
+    }
 }

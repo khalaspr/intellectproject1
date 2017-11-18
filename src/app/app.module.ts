@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { ROUTING } from "./app.routing";
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
+import { TodoListServiceService } from "./todo-list-service.service";
+
 
 @NgModule({
     declarations: [
@@ -23,7 +25,7 @@ import { AboutComponent } from "./about/about.component";
         ClarityModule,
         ROUTING
     ],
-    providers: [],
+    providers: [TodoListServiceService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
