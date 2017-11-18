@@ -17,12 +17,12 @@
 
                          <span class="card-media-text">
                         
-                        
+                      
                 <div class="checkbox">
                   
                   
-                    <input  type="checkbox" (change)="ChangeTodoList(todo.id,$event)" id="checkrads_2"  [(ngModel)]="todo.completed">
-                    <label   for="checkrads_{{index}}">{{todo.title}}</label>
+                    <input  type="checkbox" id="tag{{todo.id}}" (change)="ChangeTodoList(todo.id,$event)"   [(ngModel)]="todo.completed">
+                    <label    for="tag{{todo.id}}">{{todo.title}}</label>
                   
                 </div>
 
