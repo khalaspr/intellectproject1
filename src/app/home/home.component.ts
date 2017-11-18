@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 })
 export class HomeComponent {
  profile: any;
-
+ stackBadges:any;
 
     constructor(private router: Router,private _TodoListServiceService:TodoListServiceService) {
         
@@ -32,7 +32,6 @@ export class HomeComponent {
                                                      this.profile=res;                  
                                                    //  console.log(this.profile);                                   
                                })
-                            
-    
+
     }
 }

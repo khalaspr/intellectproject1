@@ -6,7 +6,6 @@
    <button (click)="backToList();" class="btn btn-sm btn-primary">Back to Todo</button>
    <br/>
        <b>   To Do list of {{UserName}}             </b>
-                        
 <div class="row" *ngFor="let todo of profile">
     <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
@@ -14,25 +13,16 @@
             <div class="card-block">
                 <div class="card-media-block">
                     <div class="card-media-description">
-
                          <span class="card-media-text">
-                        
-                      
                 <div class="checkbox">
-                  
-                  
-                    <input   type="checkbox" id="tag{{todo.id}}" (change)="ChangeTodoList(todo.id,$event)"   [(ngModel)]="todo.completed">
-                    <label  for="tag{{todo.id}}">{{todo.title}}</label>
-                  
+                    <input    type="checkbox" id="tag{{todo.id}}" (change)="ChangeTodoList(todo.id,$event)"   [(ngModel)]="todo.completed">
+                    <label  [ngClass]="{'clr-checked':todo.completed == true}" for="tag{{todo.id}}">{{todo.title}}</label>
+                    <button (click)="DeleteTodos(todo.id);" class="btn btn-danger">X</button>
                 </div>
-
-                        
                         </span>
                     </div>
                     </div>
-                    <div class="card-footer">
-                <button (click)="DeleteTodos(todo.id);" class="btn btn-sm btn-danger">Delete Todo</button>
-            </div>
+                 
                 
             </div>
             

@@ -22,5 +22,6 @@ export class TodoListServiceService {
     return this._http.delete("http://jsonplaceholder.typicode.com/todos/"+todoId)
     .map((res:Response) => res);
   }
+  
 }
 
